@@ -1,28 +1,23 @@
-import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { getCity } from '../../api'
 
 const SearchBar = ({searchedCity, setSearchedCity}) => {
 
-    const [inputCity, setInputCity] = useState('')
+    const [location, setLocation] = useState('')
 
-    const handleSearch = (city) => {
-        setSearchedCity(city)
-        console.log(searchedCity)
-        return searchedCity
-    }
-
-    const handleInputChange = (event) => {
-        setInputCity(event.target.value.trim())
-        return inputCity
-    }
-
-
+    useEffect(() => {
+        const debounceSearch = setTimeout(() => {
+            getCity(location)
+        }, 1000)
+        return () => clearTimeout(debounceSearch)
+    }, [location])
+    
     return (
         <section className="city-searchbar shadow-xl backdrop-blur-sm">
                 <input placeholder="Pesquisar por cidade..." type="text" 
                 className="focus:outline-none text-xl bg-transparent text-slate-300 city-input"
-                value={inputCity} onChange={handleInputChange} />
-                <button onClick={() => handleSearch(inputCity)}><Image src="/img/findIcon.png" width={35} height={35} alt="buscar"/></button>
+                onChange={e => setLocation(e.target.value.trim())}
+                />
         </section>
     )
 }
