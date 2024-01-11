@@ -44,11 +44,11 @@ body {
 }
 
 .city-searchbar {
-    border-radius: 25px;
+    border-radius: 30px;
     width: 35%;
     display: flex;
     border: 1px solid #d3d3d3;
-    padding: 0.9rem 1.2rem;
+    padding: 1rem 1rem;
 }
 
 .city-input {
