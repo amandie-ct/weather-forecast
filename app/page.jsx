@@ -16,6 +16,5 @@ const [searchedCity, setSearchedCity] = useState('')
       <WeatherDetails />
       </section>
     </main>
-
   )
 }
