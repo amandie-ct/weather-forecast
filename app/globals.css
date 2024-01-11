@@ -53,7 +53,7 @@ body {
 
 .city-input {
     outline: none;
-    width: 80%;
+    width: 90%;
 }
 
 .forecast {
@@ -62,4 +62,13 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 30vh;
+}
+
+.forecast-div {
+    display: flex;
+    align-items: center;
+
+    img { 
+        width: 68px;
+    }
 }
